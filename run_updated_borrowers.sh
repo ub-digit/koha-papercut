@@ -1,4 +1,6 @@
 #!/bin/bash
+script_dir="$(dirname "$(readlink -f "$0")")"
+source "$script_dir/config"
 
 DIR="/opt/koha-papercut"
 EOP_FILE="eop_users.txt"
@@ -8,7 +10,7 @@ cd "$DIR"
 rm -f "$EOP_FILE"
 rm -f "$PC_FILE"
 
-/usr/sbin/koha-shell koha -c "perl updated_borrowers.pl"
+/usr/sbin/koha-shell $KOHA_INSTANCE -c "perl updated_borrowers.pl"
 
 if test -f "$EOP_FILE"
 then
