@@ -9,6 +9,8 @@ use Koha::Patron;
 use Koha::Patrons;
 use Koha::DateUtils;
 
+my $dir = "/opt/koha-papercut";
+
 my $dtf = Koha::Database->new->schema->storage->datetime_parser;
 my $date = dt_from_string();
 $date->subtract(hours => 1);
@@ -23,8 +25,8 @@ my $patrons = Koha::Patrons->search({
 
 use Data::Dumper;
 
-open(EOP_USERS, ">eop_users.txt");
-open(PC_USERS, ">pc_users.txt");
+open(EOP_USERS, ">$dir/eop_users.txt");
+open(PC_USERS, ">/$dir/pc_users.txt");
 
 foreach my $patron (@{$patrons->unblessed}) {
     print_eop(EOP_USERS, $patron);

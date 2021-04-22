@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIR="/home/koha/papercut"
+DIR="/opt/koha-papercut"
 EOP_FILE="eop_users.txt"
 PC_FILE="pc_users.txt"
 
