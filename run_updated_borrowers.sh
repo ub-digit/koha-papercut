@@ -6,11 +6,15 @@ DIR="/opt/koha-papercut"
 EOP_FILE="eop_users.txt"
 PC_FILE="pc_users.txt"
 
+pushd .
 cd "$DIR"
 rm -f "$EOP_FILE"
 rm -f "$PC_FILE"
+popd
 
 /usr/sbin/koha-shell $KOHA_INSTANCE -c "perl updated_borrowers.pl"
+
+cd "$DIR"
 
 if test -f "$EOP_FILE"
 then
