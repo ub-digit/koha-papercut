@@ -7,7 +7,7 @@ BEGIN {
 
 use Koha::Patron;
 use Koha::Patrons;
-use Koha::DateUtils;
+use Koha::DateUtils qw(dt_from_string);
 
 my $dir = "/opt/koha-papercut";
 
