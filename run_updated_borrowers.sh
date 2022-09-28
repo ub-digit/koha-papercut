@@ -25,5 +25,7 @@ fi
 if test -f "$PC_FILE"
 then
     scp "$PC_FILE" root@intra.ub.gu.se:/opt/load_pc_user/data/new_users
+    scp "$PC_FILE" root@intra.ub.gu.se:/opt/load_pc_user-canon/data/new_users
     ssh root@intra.ub.gu.se "/opt/load_pc_user/run_load_new_users.sh"
+    ssh root@intra.ub.gu.se "/opt/load_pc_user-canon/run_load_new_users.sh"
 fi
